@@ -18,6 +18,10 @@ odoo.define('echart_views.Controller', function (require) {
         renderButtons: function ($node) {
             console.log("eview controller >>> renderButtons");
             this._super.apply(this, arguments);
+            this.$buttons = $(qweb.render('echart_views.buttons'));
+            this.$measureList = this.$buttons.find('.o_echart_measures_list');
+            this.$buttons.click(this._onButtonClick.bind(this));
+            this.$buttons.appendTo($node);
         },
         // 执行该方法重新加载视图，默认逻辑是对调用update的封装
         reload: function (params) {
@@ -44,7 +48,19 @@ odoo.define('echart_views.Controller', function (require) {
             console.log("eview controller >>> _update");
             this._super.apply(this, arguments);
         },
-
+        _onButtonClick: function (event) {
+            var $target = $(event.target);
+            var field;
+            if ($target.parents('.o_echart_measures_list').length) {
+                event.preventDefault();
+                event.stopPropagation();
+                field = $target.data('field');
+                _.each(this.$measureList.find('.dropdown-item'), function (item) {
+                    var $item = $(item);
+                    $item.toggleClass('selected', $item.data('field') === field);
+                });
+            }
+        },
 
     });
 

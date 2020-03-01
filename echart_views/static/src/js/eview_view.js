@@ -14,6 +14,7 @@ odoo.define('echart_views.View', function (require) {
         cssLibs: [
         ],
         jsLibs: [
+            'https://cdn.jsdelivr.net/npm/echarts@4.6.0/dist/echarts.min.js',
         ],
         config: {
             Model: eViewModel,

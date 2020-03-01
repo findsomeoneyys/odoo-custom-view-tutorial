@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates>
+
+    <t t-name="echart_views.page">
+        <div class="container-fluid mt-3">
+            <div id="app" class="mt-2" style="width: 800px;height:500px;">
+                <p>echart</p>
+            </div>
+        </div>
+    </t>
+
+    <t t-name="echart_views.buttons">
+        <div class="btn-group" role="toolbar" aria-label="Main actions">
+            <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                统计字段
+            </button>
+            <div class="dropdown-menu o_echart_measures_list" role="menu">
+               <a class="dropdown-item" href="#" data-field="name">名字</a>
+               <a class="dropdown-item" href="#" data-field="downloads">下载量</a>
+            </div>
+        </div>
+    </t>
+
+</templates>

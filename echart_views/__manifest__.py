@@ -26,6 +26,9 @@
         'views/templates.xml',
         'views/views.xml',
     ],
+    'qweb': [
+        'static/src/xml/qweb_template.xml',
+    ],
     'installable': True,
     'application': True,
 }
