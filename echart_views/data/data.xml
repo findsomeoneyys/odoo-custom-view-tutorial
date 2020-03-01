@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+    <record model="echart_views.game" id="game_01">
+        <field name="name">塞尔达传说</field>
+        <field name="downloads">2333</field>
+        <field name="platform">SWITCH</field>
+    </record>
+
+    <record model="echart_views.game" id="game_02">
+        <field name="name">地下城与勇士</field>
+        <field name="downloads">4620</field>
+        <field name="platform">PC</field>
+    </record>
+
+    <record model="echart_views.game" id="game_03">
+        <field name="name">精灵宝可梦</field>
+        <field name="downloads">3200</field>
+        <field name="platform">SWITCH</field>
+    </record>
+
+    <record model="echart_views.game" id="game_04">
+        <field name="name">恶魔城</field>
+        <field name="downloads">2000</field>
+        <field name="platform">3DS</field>
+    </record>
+
+    <record model="echart_views.game" id="game_05">
+        <field name="name">怪物猎人</field>
+        <field name="downloads">5000</field>
+        <field name="platform">ps4</field>
+    </record>
+
+    <record model="echart_views.game" id="game_06">
+        <field name="name">刀剑神域</field>
+        <field name="downloads">6500</field>
+        <field name="platform">PSV</field>
+    </record>
+
+</odoo>
