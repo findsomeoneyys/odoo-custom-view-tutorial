@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <template id="assets_end" inherit_id="web.assets_backend">
+        <xpath expr="." position="inside">
+
+            <script type="text/javascript" src="/echart_views/static/src/js/eview_view.js" />
+            <script type="text/javascript" src="/echart_views/static/src/js/eview_model.js" />
+            <script type="text/javascript" src="/echart_views/static/src/js/eview_controller.js" />
+            <script type="text/javascript" src="/echart_views/static/src/js/eview_renderer.js" />
+
+        </xpath>
+    </template>
+
+</odoo>

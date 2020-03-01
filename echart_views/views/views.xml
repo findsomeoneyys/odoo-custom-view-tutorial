@@ -5,7 +5,7 @@
         <field name="name">Games</field>
         <field name="res_model">echart_views.game</field>
         <field name="view_type">form</field>
-        <field name="view_mode">tree,form</field>
+        <field name="view_mode">tree,eview,form</field>
     </record>
 
     <menuitem name="Echart views" id="echart_views_base_menu" />
@@ -51,6 +51,19 @@
                 <field name="platform"/>
                 <field name="downloads"/>
             </search>
+        </field>
+    </record>
+
+    <!-- eview View -->
+    <record id="echart_views_game_view_eview" model="ir.ui.view">
+        <field name="name">Game echart view</field>
+        <field name="model">echart_views.game</field>
+        <field name="arch" type="xml">
+            <eview>
+                <field name="name"/>
+                <field name="downloads"/>
+                <field name="platform"/>
+            </eview>
         </field>
     </record>
 
