@@ -26,7 +26,7 @@ odoo.define('echart_views.Renderer', function (require) {
                 legend: {
                     orient: 'vertical',
                     left: 10,
-                    data: ['直接访问', '邮件营销', '联盟广告', '视频广告', '搜索引擎']
+                    data: []
                 },
                 series: [
                     {
@@ -52,27 +52,28 @@ odoo.define('echart_views.Renderer', function (require) {
                                 show: false
                             }
                         },
-                        data: [
-                            {value: 335, name: '直接访问'},
-                            {value: 310, name: '邮件营销'},
-                            {value: 234, name: '联盟广告'},
-                            {value: 135, name: '视频广告'},
-                            {value: 1548, name: '搜索引擎'}
-                        ]
+                        data: []
                     }
                 ]
             };
-            
+
 
         },
         /**
-         * renderer的渲染逻辑部分，自行渲染相关数据并插入this.$el中
+         *  renderer的渲染逻辑部分，自行渲染相关数据并插入this.$el中
+         *
+         * @abstract
+         * @private
+         * @returns {Deferred}
          */
         _render: function () {
             console.log("eview renderer >>> _render");
             this.$el.empty();
 
             this.echart_option.title.text = this.state.measureString;
+            this.echart_option.series[0].name = this.state.measureString;
+            this.echart_option.series[0].data = this.state.seriesData;
+            this.echart_option.legend.data = this.state.seriesLegend;
 
             this.$el.append(qweb.render('echart_views.page'));
             var el = this.$el.find('#app')[0];
