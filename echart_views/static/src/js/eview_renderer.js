@@ -58,7 +58,11 @@ odoo.define('echart_views.Renderer', function (require) {
 
         },
         /**
-         * renderer的渲染逻辑部分，自行渲染相关数据并插入this.$el中
+         *  renderer的渲染逻辑部分，自行渲染相关数据并插入this.$el中
+         *
+         * @abstract
+         * @private
+         * @returns {Deferred}
          */
         _render: function () {
             console.log("eview renderer >>> _render");
@@ -67,6 +71,7 @@ odoo.define('echart_views.Renderer', function (require) {
             var el = this.$el.find('#app')[0];
             var myChart = echarts.init(el);
             myChart.setOption(this.echart_option);
+            return this._super.apply(this, arguments);
         },
     });
 
