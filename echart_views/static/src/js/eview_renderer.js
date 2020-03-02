@@ -7,6 +7,9 @@ odoo.define('echart_views.Renderer', function (require) {
     var qweb = core.qweb;
 
     var EchartRenderer = AbstractRenderer.extend({
+        events: _.extend({}, AbstractRenderer.prototype.events, {
+            'click #reloadView': '_onClickReloadView',
+        }),
         init: function (parent, state, params) {
             console.log("eview renderer >>> init");
             this._super.apply(this, arguments);
@@ -81,6 +84,12 @@ odoo.define('echart_views.Renderer', function (require) {
             myChart.setOption(this.echart_option);
             return this._super.apply(this, arguments);
         },
+        _onClickReloadView: function (ev) {
+            ev.preventDefault();
+            console.log("eview renderer >>> _onClickReloadView");
+            this.trigger_up('reload_view');
+            
+        }
     });
 
     return EchartRenderer;

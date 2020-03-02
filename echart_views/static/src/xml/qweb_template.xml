@@ -3,6 +3,7 @@
 
     <t t-name="echart_views.page">
         <div class="container-fluid mt-3">
+            <button class="btn btn-primary ml-2" id="reloadView">重新加载</button>
             <div id="app" class="mt-2" style="width: 800px;height:500px;">
                 <p>echart</p>
             </div>

@@ -6,6 +6,9 @@ odoo.define('echart_views.Controller', function (require) {
     var qweb = core.qweb;
 
     var EchartController = AbstractController.extend({
+        custom_events: _.extend({}, AbstractController.prototype.custom_events, {
+            'reload_view': '_onClickReloadView',
+        }),
         init: function (parent, model, renderer, params) {
             console.log("eview controller >>> init");
             this._super.apply(this, arguments);
@@ -93,7 +96,10 @@ odoo.define('echart_views.Controller', function (require) {
                 $item.toggleClass('selected', $item.data('field') === state.measure);
             });
         },
-
+        _onClickReloadView: function (ev) {
+            console.log("eview controller >>> _onClickReloadView");
+            this.reload();
+        },
     });
 
     return EchartController;
