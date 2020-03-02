@@ -57,6 +57,9 @@ odoo.define('echart_views.View', function (require) {
             });
 
             this.controllerParams.measures = measures;
+            this.loadParams.measure = measure;
+            this.loadParams.measures = measures;
+            this.loadParams.displayNameField = displayNameField || 'display_name';
         },
         /**
          * View的主要的执行逻辑，这个方法会分别执行getModel，getRenderer初始化相关组件，

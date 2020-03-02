@@ -15,6 +15,14 @@ odoo.define('echart_views.Renderer', function (require) {
                     trigger: 'item',
                     formatter: '{a} <br/>{b}: {c} ({d}%)'
                 },
+                title: {
+                    text: '',
+                    left: 'center',
+                    top: 20,
+                    textStyle: {
+                        color: '#ccc'
+                    }
+                },
                 legend: {
                     orient: 'vertical',
                     left: 10,
@@ -63,10 +71,14 @@ odoo.define('echart_views.Renderer', function (require) {
         _render: function () {
             console.log("eview renderer >>> _render");
             this.$el.empty();
+
+            this.echart_option.title.text = this.state.measureString;
+
             this.$el.append(qweb.render('echart_views.page'));
             var el = this.$el.find('#app')[0];
             var myChart = echarts.init(el);
             myChart.setOption(this.echart_option);
+            return this._super.apply(this, arguments);
         },
     });
 
