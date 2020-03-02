@@ -9,6 +9,7 @@ odoo.define('echart_views.Controller', function (require) {
         init: function (parent, model, renderer, params) {
             console.log("eview controller >>> init");
             this._super.apply(this, arguments);
+            this.measures = params.measures;
         },
         start: function() {
             console.log("eview controller >>> start");
@@ -18,7 +19,12 @@ odoo.define('echart_views.Controller', function (require) {
         renderButtons: function ($node) {
             console.log("eview controller >>> renderButtons");
             this._super.apply(this, arguments);
-            this.$buttons = $(qweb.render('echart_views.buttons'));
+            var context = {
+                    measures: _.sortBy(_.pairs(this.measures), function (x) {
+                        return x[1].string.toLowerCase();
+                    }),
+                };
+            this.$buttons = $(qweb.render('echart_views.buttons', context));
             this.$measureList = this.$buttons.find('.o_echart_measures_list');
             this.$buttons.click(this._onButtonClick.bind(this));
             this.$buttons.appendTo($node);

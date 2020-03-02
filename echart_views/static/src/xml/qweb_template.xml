@@ -15,8 +15,9 @@
                 统计字段
             </button>
             <div class="dropdown-menu o_echart_measures_list" role="menu">
-               <a class="dropdown-item" href="#" data-field="name">名字</a>
-               <a class="dropdown-item" href="#" data-field="downloads">下载量</a>
+               <t t-foreach="measures" t-as="measure">
+                    <a role="menuitem" href="#" class="dropdown-item" t-att-data-field="measure[0]"><t t-esc="measure[1].string"/></a>
+                </t>
             </div>
         </div>
     </t>

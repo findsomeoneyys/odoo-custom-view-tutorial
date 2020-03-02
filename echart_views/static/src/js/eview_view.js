@@ -38,6 +38,25 @@ odoo.define('echart_views.View', function (require) {
         init: function (viewInfo, params) {
             console.log("eview view >>> init");
             this._super.apply(this, arguments);
+
+            var self = this;
+            var displayNameField;
+            var measure;
+            var measures = {};
+
+            this.arch.children.forEach(function (field) {
+                var fieldName = field.attrs.name;
+                if (field.attrs.type === 'measure') {
+                    if (!measure) {
+                        measure = fieldName;
+                    }
+                    measures[fieldName] = self.fields[fieldName];
+                } else if(field.attrs.type === 'name') {
+                    displayNameField = fieldName;
+                }
+            });
+
+            this.controllerParams.measures = measures;
         },
         /**
          * View的主要的执行逻辑，这个方法会分别执行getModel，getRenderer初始化相关组件，
