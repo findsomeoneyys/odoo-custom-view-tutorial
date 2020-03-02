@@ -14,7 +14,7 @@ odoo.define('echart_views.Controller', function (require) {
         /**
          * @returns {Deferred}
          */
-        start: function () {
+        start: function() {
             console.log("eview controller >>> start");
             return this._super();
         },
