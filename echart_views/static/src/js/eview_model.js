@@ -13,7 +13,13 @@ odoo.define('echart_views.Model', function (require) {
             var measureString = this.measures[this.measure]['string'];
             return {measure: this.measure, measureString: measureString};
         },
-        // 只会初次加载时执行一次，需要自定义相关数据获取方法获取数据并设置到该对象上
+        /**
+         * 只会初次加载时执行一次，需要自定义相关数据获取方法获取数据并设置到该对象上
+         *
+         * @param {Object} params
+         * @param {string} params.modelName the name of the model
+         * @returns {Deferred} The deferred resolves to some kind of handle
+         */
         load: function (params) {
             console.log("eview model >>> load");
             this.measure = params.measure;
@@ -21,7 +27,12 @@ odoo.define('echart_views.Model', function (require) {
             this.displayNameField = params.displayNameField;
             return this._super.apply(this, arguments);
         },
-        // 当有相关数据变动时，重新获取数据。
+        /**
+         * 当有相关数据变动时，重新获取数据。
+         *
+         * @param {Object} params
+         * @returns {Deferred}
+         */
         reload: function (handle, params) {
             console.log("eview model >>> reload");
             if ('measure' in params) {
